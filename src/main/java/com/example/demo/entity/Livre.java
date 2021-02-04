@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
-import com.example.demo.entity.Categorie;
+import com.sun.istack.NotNull;
 @Entity
 @Table
 public class Livre {
@@ -24,28 +24,29 @@ private String edition;
 private float prix;
 	@Column @NotNull
 private Date dateCreation;
-@ManyToOne
-private Categorie categorie;	
+/*@ManyToOne
+private Categorie categorie;	*/
 @Column @NotNull
 private int stock;	
+
 	  public Livre(){ }
 	  
-	  public Livre (String nomLivre,String auteur,String edition,float prix ,Date dateCreation,Catagorie categorie,int stock){
+	  public Livre (String nomLivre,String auteur,String edition,float prix ,Date dateCreation/*Catagorie categorie*/,int stock){
          this.nomLivre=nomLivre;
          this.auteur=auteur;
          this.edition=edition;
          this.prix=prix;       
          this.dateCreation=dateCreation;    
-         this.Categorie=categorie;
+        // this.Categorie=categorie;
          this.stock=stock;}
 	
 
-	public int getIdLivre() {
-        return idLivre;
+	public Long getIdLivre() {
+        return id;
      }
 
-     public void setIdLivre(int idLivre) {
-        this.idLivre = idLivre;
+     public void setIdLivre(Long idLivre) {
+        this.id= idLivre;
      }
     
      
@@ -93,13 +94,13 @@ private int stock;
         this.dateCreation = dateCreation;
      }
 
-    public Categorie getCategorie() {
+ /*   public Categorie getCategorie() {
         return categorie;
     }
 
     public void setIdCategorie(Categorie categorie) {
         this.categorie = categorie;
-    }
+    }*/
   
     public int getStock() {
         return stock;

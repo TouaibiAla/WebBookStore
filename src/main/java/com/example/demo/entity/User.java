@@ -38,7 +38,7 @@ private String phoneNumber;
 private String role;
 	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL) @NotNull 
 	@JsonIgnore
-private List<Reclamation> reclamation;
+private java.util.List<Reclamation> reclamation;
 	
 	
 	public User() {

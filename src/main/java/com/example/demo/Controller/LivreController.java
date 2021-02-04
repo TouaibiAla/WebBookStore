@@ -20,7 +20,7 @@ import com.example.demo.service.LivreService;
 
 @RestController
 @RequestMapping("/api")
-public class livreController {
+public class LivreController {
 	@Autowired
     private LivreService livreService;
 	@GetMapping("/livres")
@@ -28,7 +28,7 @@ public class livreController {
         return new ResponseEntity<>(this.livreService.getAll(), HttpStatus.OK);
       }
 	@GetMapping("/livres/search={text}")
-	public ResponseEntity<Livre> getByAnything(@PathVariable text){
+	public ResponseEntity<List<Livre>> getByAnything(@PathVariable String text){
 	return new ResponseEntity<>(this.livreService.getAll(), HttpStatus.OK);
       }
 	
@@ -46,7 +46,7 @@ public class livreController {
 	  @GetMapping("/livreById/{id}")
 	    public ResponseEntity<Livre> getOneById(@PathVariable Long id){
 		 
-	        return new ResponseEntity<>(this.LivreService.getOneById(id),HttpStatus.OK);
+	        return new ResponseEntity<>(this.livreService.getOneById(id),HttpStatus.OK);
 	    }
 	@PutMapping("/updateLivre/{id}")
     public ResponseEntity<Livre> updateLivre(@PathVariable Long id,@Validated @RequestBody Livre livre ) {

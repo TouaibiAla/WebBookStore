@@ -14,6 +14,6 @@ public interface LivreRepository extends JpaRepository<Livre, Long> {
   Livre findByNomLivre(String name);
   
 
-  Query("select l from Livre l, Categorie c where l.categorie = c.id and (l.nomLivre = ?1 l.edision = ?1 or l.auteur = ?1 or c.libelle= ?1)")
-  List<Livre> findByAnything (String text);
+  /*Query("select l from Livre l, Categorie c where l.categorie = c.id and (l.nomLivre = ?1 l.edision = ?1 or l.auteur = ?1 or c.libelle= ?1)")
+  List<Livre> findByAnything (String text);*/
 }

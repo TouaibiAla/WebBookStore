@@ -16,13 +16,13 @@ public class LivreService {
 	
 	
     public List<Livre> getAll(){
-        return this.LivreRepository.findAll();
+        return this.livreRepository.findAll();
     }
    
     
      public Livre addLivre(Livre livre) {
         
-        return  this.livreRepository.save(Livre);
+        return  this.livreRepository.save(livre);
      }
      
  
@@ -32,8 +32,8 @@ public class LivreService {
          this.livreRepository.deleteById(id);
        }
        public void deleteLivreByName(String name){
-		  Livre livre=this.livreRepository.findByNomLivre(name).orElseThrow(()-> new NotFoundException("Livre n'existe pas"));
-		 this.livreRepository.deleteById(livre.getId());		 
+		  Livre livre=this.livreRepository.findByNomLivre(name);
+		 this.livreRepository.deleteById((long) livre.getIdLivre());		 
 	   }
       
      
@@ -45,19 +45,19 @@ public class LivreService {
     	   Livre livre=this.livreRepository.findByNomLivre(name);
            return livre;
        }
-       public List<Livre> getByAnything(String text)
+      /* public List<Livre> getByAnything(String text)
 	       return this.livreRepository.findByAnything(text);
           
-       }
+       }*/
      
         public Livre updateLivre(Long id,Livre livre) {
-        	Livre l=this.LivreRepository.findById(id).orElseThrow(()->new NotFoundException("Livre n'existe pas"));
-        	l.setnomLivre(livre.nomLivre());
+        	Livre l=this.livreRepository.findById(id).orElseThrow(()->new NotFoundException("Livre n'existe pas"));
+        	l.setNomLivre(livre.getNomLivre());
         	l.setAuteur(livre.getAuteur());
-        	l.setEdision(livre.getEdision());
+        	l.setEdition((livre.getEdition()));
 			l.setPrix(livre.getPrix());
         	l.setDateCreation(livre.getDateCreation());
-        	l.setCategorie(livre.getCategorie());
+        	//l.setCategorie(livre.getCategorie());
 			l.setStock(livre.getStock());
            return livreRepository.save(l);
         }
