@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.dao.ReclamationRepository;
 import com.example.demo.entity.Reclamation;
 import com.example.demo.entity.User;
@@ -16,7 +19,7 @@ public class ReclamationService {
 	private ReclamationRepository reclamRepo;
 	
 	@Autowired
-	private UserService userservice;
+	private UserService userService;
 	
 	/**
      * function
@@ -52,9 +55,9 @@ public class ReclamationService {
         *@param id of the User
         * @return a List of Reclamation
         */
-       public List<Reclamation> getReclamationByIdUser(Long id){
-           return this.reclamRepo.getOne(this.userservice.getOneById(id).getId());
-       }
+      /* public List<Reclamation> getReclamationByIdUser(Long id){
+           return this.reclamRepo.getOne(this.userService.getOneById(id).getId());
+       }*/
        
        /**
         *a function taking two arguments and returning an object of Reclamation updated.

@@ -13,8 +13,8 @@ import lombok.NonNull;
 @Entity
 @Table
 public class Reclamation {
-
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY);
+   
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idReclamation;
 	
 	@Column @NonNull
