@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +22,13 @@ private Date date;
 private int etat;
 @Column @NotNull
 private double prix;
+@ManyToOne
+private User idUtilisateur;
+
+@OneToMany(mappedBy="commande", cascade=CascadeType.ALL) @NotNull 
+@JsonIgnore
+private List<LivreCommande> livreCommande;
+
 public Commande() {
 	super();
 }
