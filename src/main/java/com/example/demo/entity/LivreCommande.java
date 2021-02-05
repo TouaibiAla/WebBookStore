@@ -11,8 +11,10 @@ import com.sun.istack.NotNull;
 @Table
 public class LivreCommande {
 	@ManyToOne
+	@JoinColumn(name="idLivre", referencedColumnName="id", insertable=false, updatable=false)
 	private Livre livre;
 	@ManyToOne
+	@JoinColumn(name="idCommande", referencedColumnName="idCommande", insertable=false, updatable=false)
 	private Commande commande;
 	
 	@Column @NotNull

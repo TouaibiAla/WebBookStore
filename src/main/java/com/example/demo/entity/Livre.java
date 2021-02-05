@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
+import java.util.List;
+
+import com.example.demo.entity.LivreCommande;
 import com.sun.istack.NotNull;
 @Entity
 @Table
@@ -27,7 +30,11 @@ private Date dateCreation;
 @ManyToOne
 private Categorie categorie;
 @Column @NotNull
-private int stock;	
+private int stock;
+
+@OneToMany(mappedBy="livre", cascade=CascadeType.ALL) @NotNull 
+@JsonIgnore
+private List<LivreCommande> livreCommandes;
 
 	  public Livre(){ }
 	  
