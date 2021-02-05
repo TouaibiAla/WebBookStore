@@ -18,6 +18,10 @@ public class Categorie {
 	@Column @NotNull
 	private String label;
 	
+	@OneToMany(mappedBy="categorie",cascade=CascadeType.ALL) @NotNull 
+	@JsonIgnore
+	private List<Livre> livre;
+
 	public Categorie() {
 		super();
 	}

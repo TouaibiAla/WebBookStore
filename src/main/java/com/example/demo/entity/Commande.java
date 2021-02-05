@@ -21,6 +21,8 @@ private Date date;
 private int etat;
 @Column @NotNull
 private double prix;
+@ManyToOne
+private User idUtilisateur;
 public Commande() {
 	super();
 }

@@ -24,8 +24,8 @@ private String edition;
 private float prix;
 	@Column @NotNull
 private Date dateCreation;
-/*@ManyToOne
-private Categorie categorie;	*/
+@ManyToOne
+private Categorie categorie;
 @Column @NotNull
 private int stock;	
 
