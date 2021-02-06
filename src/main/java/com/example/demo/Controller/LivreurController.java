@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Commande;
 import com.example.demo.entity.Livreur;
 import com.example.demo.service.LivreurService;
 
 @RestController
+@RequestMapping("/api")
 public class LivreurController {
 	@Autowired
 	private LivreurService livreurService;
@@ -35,8 +38,12 @@ public class LivreurController {
 	public ResponseEntity<Livreur> addLivreur(@Validated @RequestBody Livreur livreur){
 		return new ResponseEntity<>(this.livreurService.addLivreur(livreur),HttpStatus.CREATED);
 	}
-	
-	@DeleteMapping("/livreur/{idLivreur}")
+	 @DeleteMapping("/livreur/{idLivreur}")
+		public ResponseEntity<?> deleteLivreur(@PathVariable Long idLivreur) {
+	        this.livreurService.deleteLivreur(idLivreur);
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	     }
+	/*@DeleteMapping("/livreur/{idLivreur}")
 	public ResponseEntity<?> deleteLivreur(@PathVariable Long id) {
         this.livreurService.deleteLivreur(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -45,5 +52,9 @@ public class LivreurController {
 	@PutMapping("/livreur/{idLivreur}")
     public ResponseEntity<Livreur> updateLivreur(@PathVariable Long id,@Validated @RequestBody Livreur livreur) {
         return new ResponseEntity<>(this.livreurService.updateLivreur(id,livreur),HttpStatus.OK);
+     }*/
+	@PutMapping("/updateLivreur/{idLivreur}")
+    public ResponseEntity<Livreur> updateLivreur(@PathVariable Long idLivreur,@Validated @RequestBody Livreur livreur ) {
+        return new ResponseEntity<>(this.livreurService.updateLivreur(idLivreur,livreur),HttpStatus.OK);
      }
 }

@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -7,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.example.demo.entity.Commande;
+import com.example.demo.entity.Livre;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
@@ -23,8 +27,8 @@ public class BookStoreApplication implements CommandLineRunner {
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		//User u=new User("aa","123","alaa", "159357", "admin");
-		//userService.addUser(u);
+		//User user = new User("saif@gmail.com", "123456", "saif", "saif", "123456", "admin");
+		//userService.addUser(user);
 		
 	}
     
