@@ -29,6 +29,11 @@ public class CommandeController {
 	public ResponseEntity<List<Commande>> getAll() {
         return new ResponseEntity<>(this.commandeService.getAll(), HttpStatus.OK);
       }
+	@GetMapping("/commandeByUserId")
+    public ResponseEntity<List<Commande>> getAllbyUserId(@Validated @RequestBody User user){
+		
+        return new ResponseEntity<>(this.commandeService.getAllbyUserId(user),HttpStatus.OK);
+    }
 	
 	@PostMapping("/addCommande")
 	public ResponseEntity<Commande> addCommande(@Validated @RequestBody Commande commande){

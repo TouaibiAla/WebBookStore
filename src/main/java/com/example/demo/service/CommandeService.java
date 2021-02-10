@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.CommandeRepository;
 import com.example.demo.entity.Commande;
+import com.example.demo.entity.User;
 import com.example.demo.exception.NotFoundException;
 
 @Service
@@ -19,6 +20,13 @@ public class CommandeService {
      */
     public List<Commande> getAll(){
         return this.commandeRepository.findAll();
+    }
+    /**
+     * function
+     * @return list of all Commande by id user
+     */
+    public List<Commande> getAllbyUserId(User user){
+        return this.commandeRepository.findByUserId(user);
     }
    
     
