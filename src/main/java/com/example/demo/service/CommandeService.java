@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.CommandeRepository;
 import com.example.demo.entity.Commande;
+import com.example.demo.entity.User;
 import com.example.demo.exception.NotFoundException;
 
 @Service
@@ -20,7 +21,20 @@ public class CommandeService {
     public List<Commande> getAll(){
         return this.commandeRepository.findAll();
     }
-   
+    /**
+     * function
+     * @return list of all Commande by id user
+     */
+    public List<Commande> getAllbyUserId(User user){
+        return this.commandeRepository.findByUserId(user);
+    }
+    /**
+     * function
+     * @return list of all users and ther achas
+     */
+    public List getUsersAchats(){
+        return this.commandeRepository.usersAchats();
+    }
     
     /**
      *a function taking one argument and returning an object of Commande. the purpose of the function is to a add new Commande.

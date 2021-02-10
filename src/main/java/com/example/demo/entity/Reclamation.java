@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,19 +23,19 @@ public class Reclamation {
 	
 	@Column @NonNull
 	private String description;
-	
 	@ManyToOne
-	private User idUtilisateur;
+	@JoinColumn(name="id", nullable=false)
+	private User user;
 
 	public Reclamation() {
 	}
 
-	public Reclamation(Long idReclamation, String sujet, String description, User idUtilisateur) {
+	public Reclamation(Long idReclamation, String sujet, String description, User user) {
 		super();
 		this.idReclamation = idReclamation;
 		this.sujet = sujet;
 		this.description = description;
-		this.idUtilisateur = idUtilisateur;
+		this.user = user;
 	}
 	
 	public Long getIdReclamation() {
@@ -62,11 +63,11 @@ public class Reclamation {
 	}
 
 	public User getIdUtilisateur() {
-		return idUtilisateur;
+		return user;
 	}
 
 	public void setIdUtilisateur(User idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
+		this.user = idUtilisateur;
 	}
 	
 	

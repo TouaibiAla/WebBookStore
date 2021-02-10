@@ -1,16 +1,20 @@
 package com.example.demo.entity;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.sql.Date;
 import java.util.List;
 
-import com.example.demo.entity.LivreCommande;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 @Entity
 @Table
@@ -32,9 +36,11 @@ private Categorie categorie;
 @Column @NotNull
 private int stock;
 
-@OneToMany(mappedBy="livre", cascade=CascadeType.ALL) @NotNull 
+@OneToMany(mappedBy = "livre", cascade=CascadeType.ALL) @NotNull 
 @JsonIgnore
-private List<LivreCommande> livreCommandes;
+private List<Commande> commande;
+
+
 
 	  public Livre(){ }
 	  

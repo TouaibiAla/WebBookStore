@@ -28,7 +28,7 @@ public class LivreurService {
 	}
 	
 	public void deleteLivreur(Long idLivreur){
-		Livreur livreur=this.livreurRepository.findById(idLivreur).orElseThrow(()-> new NotFoundException("Livreur n'existe pas"));
+		//Livreur livreur=this.livreurRepository.findById(idLivreur).orElseThrow(()-> new NotFoundException("Livreur n'existe pas"));
 		this.livreurRepository.deleteById(idLivreur);
 	}
 	

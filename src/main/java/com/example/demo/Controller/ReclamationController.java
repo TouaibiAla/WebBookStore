@@ -21,7 +21,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.ReclamationService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class ReclamationController {
 
 	@Autowired

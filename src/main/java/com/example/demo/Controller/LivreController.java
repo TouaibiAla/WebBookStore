@@ -37,7 +37,7 @@ public class LivreController {
         return new ResponseEntity<>(this.livreService.addLivre(livre),HttpStatus.CREATED);
      }
 	
-	 @DeleteMapping("/deleteLivre")
+	 @DeleteMapping("/deleteLivre/{id}")
 	public ResponseEntity<?> deleteLivre(@PathVariable Long id) {
         this.livreService.deleteLivre(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
